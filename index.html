@@ -116,11 +116,19 @@
             };
 
       document.body.appendChild(script);
-      createUnityInstance(document.querySelector("#unity-canvas")).then((unityInstance) => {
-        console.log('Instance created',window.Telegram.WebApp);
-                window.unityInstance = unityInstance;
-                window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
-            });;
+      createUnityInstance(canvas, config, (progress) => {
+      progressBarFull.style.width = 100 * progress + "%";
+      }).then((unityInstance) => {
+
+      window.unityInstance = unityInstance;
+
+      window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+      })
+      // createUnityInstance(document.querySelector("#unity-canvas")).then((unityInstance) => {
+      //   console.log('Instance created',window.Telegram.WebApp);
+      //           window.unityInstance = unityInstance;
+      //           window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+      //       });;
 
     </script>
   </body>
