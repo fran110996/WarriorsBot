@@ -108,17 +108,17 @@
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
+                  console.log(unityInstance);
                   unityInstance.SetFullscreen(1);
                 };
               }).catch((message) => {
                 alert(message);
               });
             };
-
       document.body.appendChild(script);
       // unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
 
-      console.log(window.unityInstance);
+      
       // createUnityInstance(document.querySelector("#unity-canvas")).then((unityInstance) => {
       //   console.log('Instance created',window.Telegram.WebApp);
       //           window.unityInstance = unityInstance;
