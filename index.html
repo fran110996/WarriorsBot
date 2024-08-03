@@ -25,7 +25,7 @@
       </div>
     </div>
     <script>
-     SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+    
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -116,7 +116,8 @@
             };
 
       document.body.appendChild(script);
-
+      unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+      
       // createUnityInstance(document.querySelector("#unity-canvas")).then((unityInstance) => {
       //   console.log('Instance created',window.Telegram.WebApp);
       //           window.unityInstance = unityInstance;
