@@ -103,7 +103,7 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-        var unityInstance = createUnityInstance(canvas, config, (progress) => {
+        createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
@@ -116,8 +116,10 @@
             };
 
       document.body.appendChild(script);
-      unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
-      
+      // unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+
+      console.log(window.unityInstance);
+      console.log(unityInstance);
       // createUnityInstance(document.querySelector("#unity-canvas")).then((unityInstance) => {
       //   console.log('Instance created',window.Telegram.WebApp);
       //           window.unityInstance = unityInstance;
