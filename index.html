@@ -26,12 +26,13 @@
     </div>
     <script>
     
-      var container = document.querySelector("#unity-container");
+    var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
+	  var nethereumUnityInstance = null;
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -58,15 +59,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build Nueva.loader.js";
+      var loaderUrl = buildUrl + "/WebGl.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Build Nueva.data",
-        frameworkUrl: buildUrl + "/Build Nueva.framework.js",
-        codeUrl: buildUrl + "/Build Nueva.wasm",
+        dataUrl: buildUrl + "/WebGl.data",
+        frameworkUrl: buildUrl + "/WebGl.framework.js",
+        codeUrl: buildUrl + "/WebGl.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "Warriors Bot",
-        productVersion: "0.1",
+        productName: "Nethereum.Unity.Webgl",
+        productVersion: "1.0",
         showBanner: unityShowBanner,
       };
 
@@ -98,6 +99,7 @@
         canvas.style.width = "960px";
         canvas.style.height = "600px";
       }
+
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
@@ -106,25 +108,18 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
+			    nethereumUnityInstance = unityInstance;
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
-                  console.log(unityInstance);
                   unityInstance.SetFullscreen(1);
                 };
               }).catch((message) => {
                 alert(message);
               });
             };
+
       document.body.appendChild(script);
-      // unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
-
-      
-      // createUnityInstance(document.querySelector("#unity-canvas")).then((unityInstance) => {
-      //   console.log('Instance created',window.Telegram.WebApp);
-      //           window.unityInstance = unityInstance;
-      //           window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
-      //       });;
-
+console.log(nethereumUnityInstance);
     </script>
   </body>
 </html>
