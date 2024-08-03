@@ -112,11 +112,11 @@
                 };
               }).catch((message) => {
                 alert(message);
-              });
+              }).then(unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user)));
             };
 
       document.body.appendChild(script);
-      unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+      // unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
       
       // createUnityInstance(document.querySelector("#unity-canvas")).then((unityInstance) => {
       //   console.log('Instance created',window.Telegram.WebApp);
