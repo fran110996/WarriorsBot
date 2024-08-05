@@ -25,15 +25,6 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        if (window.Telegram && window.Telegram.WebApp) {
-          console.log("Telegram WebApp is loaded.");
-        } else {
-          console.log("Telegram WebApp is not loaded yet.");
-        }
-      });
-    </script>
-    <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -113,11 +104,9 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                console.log(Telegram.WebApp.initDataUnsafe);
-                console.log(Telegram.WebApp.initDataUnsafe.user);
                 // Espero a que se cree la instancia y despues pido por la info
+                Telegram.WebApp.ready();
                 unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(Telegram.WebApp.initDataUnsafe.user));
-                console.log("Telegram WebApp data is not yet available.");
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
@@ -128,7 +117,6 @@
             };
 
       document.body.appendChild(script);
-      // window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
       
       </script>
   </body>
