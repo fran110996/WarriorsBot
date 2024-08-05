@@ -118,8 +118,8 @@
                 setTimeout(() => {
                 const { first_name, last_name, username } = window.Telegram.WebApp.initDataUnsafe.user;
                 if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
-                  console.log(first_name + last_name + username + " data");
-                  unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+                  var data = first_name + last_name + username + " data";
+                  unityInstance.SendMessage("TelegramController", "SetWebAppUser", data);
                 } else {
                   console.log("Telegram WebApp data is not yet available.");
                 }
