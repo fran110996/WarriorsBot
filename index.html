@@ -7,6 +7,7 @@
   <title>Unity WebGL Player | Warriors Bot</title>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,6 @@
       <div id="unity-build-title">Warriors Bot</div>
     </div>
   </div>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
     var container = document.querySelector("#unity-container");
     var canvas = document.querySelector("#unity-canvas");
@@ -120,9 +120,9 @@
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
         // Espero a que se cree la instancia y despues pido por la info
-        Telegram.WebApp.ready();
-        console.log(Telegram.WebApp.initData.user);
-        unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(Telegram.WebApp.initDataUnsafe.user));
+      
+        console.log(window.Telegram.WebApp.initData.user);
+        unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
         loadingBar.style.display = "none";
         unityInstance.SetFullscreen(1);
         fullscreenButton.onclick = () => {
