@@ -121,8 +121,8 @@
       }).then((unityInstance) => {
         // Espero a que se cree la instancia y despues pido por la info
       
-        console.log(window.Telegram.WebApp.initData.user);
-        unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+        console.log(window.Telegram.WebApp.initDataUnsafe);
+        unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user.id));
         loadingBar.style.display = "none";
         unityInstance.SetFullscreen(1);
         fullscreenButton.onclick = () => {
