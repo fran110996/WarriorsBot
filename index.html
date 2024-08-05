@@ -113,13 +113,13 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                const { first_name, last_name, username } = window.Telegram.WebApp.initDataUnsafe.user;
-                var data = first_name + last_name + username + " data";
-                unityInstance.SendMessage("TelegramController", "SetWebAppUser", data);
+                
                 //Espero a que se cree la instancia y despues pido por la info
                 setTimeout(() => {
                 if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
-              
+                  const { first_name, last_name, username } = window.Telegram.WebApp.initDataUnsafe.user;
+                  var data = first_name + last_name + username + " data";
+                  unityInstance.SendMessage("TelegramController", "SetWebAppUser", data);
                 } else {
                   console.log("Telegram WebApp data is not yet available.");
                 }
