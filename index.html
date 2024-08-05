@@ -113,9 +113,9 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                // console.log(window.telegram.WebApp.initDataUnsafe);
-                // console.log(window.telegram.WebApp.initDataUnsafe.user);
-                //Espero a que se cree la instancia y despues pido por la info
+                console.log(Telegram.WebApp.initDataUnsafe);
+                console.log(Telegram.WebApp.initDataUnsafe.user);
+                // Espero a que se cree la instancia y despues pido por la info
                 unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(Telegram.WebApp.initDataUnsafe.user));
                 console.log("Telegram WebApp data is not yet available.");
                 loadingBar.style.display = "none";
