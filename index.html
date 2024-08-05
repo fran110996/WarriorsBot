@@ -113,16 +113,10 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                
+                console.log(unityInstance);
                 //Espero a que se cree la instancia y despues pido por la info
-                setTimeout(() => {
-                if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
-                  // const { first_name, last_name, username } = window.Telegram.WebApp.initDataUnsafe.user;
-                  unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
-                } else {
-                  console.log("Telegram WebApp data is not yet available.");
-                }
-                  }, 3000); // Retrasar 3 segundos (ajusta según sea necesario)
+                unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+                console.log("Telegram WebApp data is not yet available.");
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
