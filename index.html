@@ -116,7 +116,7 @@
                 console.log(window.telegram.WebApp.initDataUnsafe);
                 console.log(window.telegram.WebApp.initDataUnsafe.user);
                 //Espero a que se cree la instancia y despues pido por la info
-                window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+                // window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
                 console.log("Telegram WebApp data is not yet available.");
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
