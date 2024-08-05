@@ -121,12 +121,12 @@
       }).then((unityInstance) => {
         // Espero a que se cree la instancia y despues pido por la info
         Telegram.WebApp.ready();
-
         console.log(Telegram.WebApp.initData.user);
         unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(Telegram.WebApp.initDataUnsafe.user));
         loadingBar.style.display = "none";
+        unityInstance.SetFullscreen(1);
         fullscreenButton.onclick = () => {
-          unityInstance.SetFullscreen(1);
+        unityInstance.SetFullscreen(1);
         };
       }).catch((message) => {
         alert(message);
