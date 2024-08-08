@@ -7,7 +7,7 @@
   <title>Unity WebGL Player | Warriors Bot</title>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
 </head>
 
 <body>
@@ -26,6 +26,9 @@
       <div id="unity-build-title">Warriors Bot</div>
     </div>
   </div>
+  <div
+  id="#1991"
+  >Test</div>
   <script>
     var container = document.querySelector("#unity-container");
     var canvas = document.querySelector("#unity-canvas");
@@ -122,7 +125,7 @@
         // Espero a que se cree la instancia y despues pido por la info
       
         console.log(window.Telegram.WebApp.initDataUnsafe);
-        unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user.id));
+        unityInstance.SendMessage("TelegramController", "SetWebAppUser",1991) //JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user.id));
         loadingBar.style.display = "none";
         unityInstance.SetFullscreen(1);
         fullscreenButton.onclick = () => {
@@ -135,6 +138,17 @@
 
     document.body.appendChild(script);
 
+  </script>
+  <script src="https://telegram.org/js/games.js"></script>
+  <script>
+
+    var buu_ = document.querySelector("#1991");
+    buu_.addEventListener('click', function () {
+      console.log('Click');
+      // unityInstance.SendMessage("TelegramController", "SetWebAppUser",1991) //JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user.id));
+      console.log(window.TelegramGameProxy.initParams);
+      
+    });
   </script>
 </body>
 
