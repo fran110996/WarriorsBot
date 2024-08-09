@@ -123,14 +123,13 @@
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
         // Espero a que se cree la instancia y despues pido por la info
-        unityInstance.SetFullscreen(1);
         console.log(window.Telegram.WebApp.initDataUnsafe);
         // si usas Telegram.WebApp.
         unityInstance.SendMessage("TelegramController", "SetWebAppUser",window.Telegram.WebApp.initDataUnsafe.user.id);
         console.log(window.Telegram.WebApp.initDataUnsafe.user)
         //
         loadingBar.style.display = "none";
-        //unityInstance.SetFullscreen(1);
+        unityInstance.SetFullscreen(1);
         fullscreenButton.onclick = () => {
         unityInstance.SetFullscreen(1);
         };
