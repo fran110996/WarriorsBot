@@ -126,7 +126,8 @@
       
         console.log(window.Telegram.WebApp.initDataUnsafe);
         // si usas Telegram.WebApp.
-        unityInstance.SendMessage("TelegramController", "SetWebAppUser",window.Telegram.WebApp.initDataUnsafe.user.id);
+        //unityInstance.SendMessage("TelegramController", "SetWebAppUser",window.Telegram.WebApp.initDataUnsafe.user.id);
+        console.log(window.Telegram.WebApp.initDataUnsafe.user)
         //
         loadingBar.style.display = "none";
         unityInstance.SetFullscreen(1);
